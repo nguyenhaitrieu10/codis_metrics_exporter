@@ -55,7 +55,6 @@ type MetricsCodis struct {
 func recordMetrics() {
 	go func() {
 		for {
-			fmt.Println(CODIS_API)
 			resp, err := http.Get(CODIS_API)
 			if err != nil {
 				fmt.Println("Request Error")
