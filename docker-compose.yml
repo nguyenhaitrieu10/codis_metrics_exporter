@@ -1,0 +1,10 @@
+version: "3"
+services:
+  codis-metrics-exporter:
+    image: registry.gitlab.com/nguyenhaitrieu10/codis-metrics-exporter:latest
+    container_name: codis-metrics-exporter
+    restart: always
+    network_mode: host
+    environment:
+      - CODIS_HOST=http://localhost:11080
+    command: ./main
