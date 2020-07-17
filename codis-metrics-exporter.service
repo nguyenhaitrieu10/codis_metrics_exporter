@@ -7,6 +7,7 @@ Type=simple
 Restart=on-failure
 RestartSec=1
 User=root
+Environment="CODIS_HOST=http://localhost:11080"
 ExecStart=/opt/codis-metrics-exporter/main
 
 [Install]

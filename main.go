@@ -94,7 +94,10 @@ func main() {
 	if DOMAIN == "" {
 		DOMAIN = "http://localhost:11080"
 		fmt.Printf("CODIS_HOST is not set, using default: %s\n", DOMAIN)
+	} else {
+		fmt.Println(DOMAIN)
 	}
+
 	CODIS_API = DOMAIN + "/proxy/stats"
 
 	recordMetrics()
