@@ -98,5 +98,6 @@ func main() {
 
 	recordMetrics()
 	http.Handle("/metrics", promhttp.Handler())
+	fmt.Println("start server at http://localhost:2112")
 	http.ListenAndServe(":2112", nil)
 }
