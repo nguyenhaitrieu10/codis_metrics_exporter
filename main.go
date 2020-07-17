@@ -13,7 +13,7 @@ import (
 )
 
 var DOMAIN = os.Getenv("CODIS_HOST")
-var CODIS_API = DOMAIN + "/proxy/stats"
+var CODIS_API string
 var INTERVAL = 5 * time.Second
 
 var (
@@ -92,9 +92,10 @@ func recordMetrics() {
 
 func main() {
 	if DOMAIN == "" {
-		fmt.Println("CODIS_HOST is not set, using default: http://localhost:11080")
-		CODIS_API = "http://localhost:11080/proxy/stats"
+		DOMAIN = "http://localhost:11080"
+		fmt.Printf("CODIS_HOST is not set, using default: %s\n", DOMAIN)
 	}
+	CODIS_API = DOMAIN + "/proxy/stats"
 
 	recordMetrics()
 	http.Handle("/metrics", promhttp.Handler())
